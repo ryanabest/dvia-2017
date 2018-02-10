@@ -6,23 +6,44 @@
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <style>
   * {
-    text-align: center;
     font-family: 'Nunito', sans-serif;
   }
 
-  a, p {
-    font-family: 'Lora', serif;
+  h1 {
+    font-size: 300%;
+    text-align: center;
+    color: #545454;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .flex-link {
+    /* width: 33.33%; */
+    font-size: 700%;
+    color: #D9D9D9;
+    text-decoration: none;
+  }
+
+  .flex-link:hover {
+    color: #ff0317;
   }
 
   </style>
 </head>
 <body>
-  <h2>Data Viz & Info Aesthetics</h2>
-  <a href = '1.mapping-time/ryan/index.html'>Mapping Time</a><br><br>
-  <a href = '2.mapping-quantities/ryan/index.html'>Mapping Quantities</a><br><br>
-  <a href = '3.textual-and-qualitative-data/students/ryan/site/index.html'>Textual and Qualitative Data</a><br><br>
-  <a href = '4.mapping-space/ryan/index.html'>Mapping Space</a><br><br>
-  <a href = '5.final-project/ryan/poc/index.html'>Final Project Data Source POC Illustration</a><br><br>
-  <a href = '5.final-project/ryan/final/index.html'>mind the gap</a><br><br>
+  <h1>dvia-2017</h1>
+  <div class = 'container'>
+    <a class = "flex-link" href = '5.final-project/ryan/final/index.html'>mind the gap</a>&nbsp;
+  </div>
+  <div class = 'container'>
+    <a class = "flex-link" href = '1.mapping-time/ryan/index.html'>Mapping Time</a>&nbsp;
+    <a class = "flex-link" href = '2.mapping-quantities/ryan/index.html'>Mapping Quantities</a>&nbsp;
+    <a class = "flex-link" href = '3.textual-and-qualitative-data/students/ryan/site/index.html'>Textual and Qualitative Data</a>&nbsp;
+    <a class = "flex-link" href = '4.mapping-space/ryan/index.html'>Mapping Space</a>&nbsp;
+    <a class = "flex-link" href = '5.final-project/ryan/poc/index.html'>Final POC</a>&nbsp;
+  </div>
 </body>
 </html>
