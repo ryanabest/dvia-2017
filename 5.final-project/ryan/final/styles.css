@@ -34,7 +34,7 @@
   height: auto;
 }
 
-.project-intro, #dist-chart-title {
+.project-intro, #dist-chart-title, #dist-legend {
   max-width: 800px;
   margin: auto;
 }
@@ -157,6 +157,8 @@ button {
 .metric-buttons button {
   font-size: 22px;
   border-radius: 10px;
+  padding: 2% 7%;
+  margin: 5px;
 }
 
 .metric-buttons {
@@ -247,7 +249,7 @@ button {
 }
 
 .state-eff, .state-eff p, .left-white, .left-blue, .right-red, .right-white {
-  height: 18px;
+  height: 2vh;
 }
 
 .left-white, .right-white {
@@ -331,7 +333,7 @@ button {
 
 /* State Summary Div */
 
-.state-summ {
+.state-summ, #dist-legend p {
   padding-left:  20%;
   padding-right: 20%;
   text-align: center;
@@ -368,11 +370,6 @@ button {
   left: 100%;
   top: 160px;
 } */
-
-#dist-legend {
-  max-width: 800px;
-  margin: auto;
-}
 
 #dist-legend p {
   font-family: 'Lora', "Times New Roman", serif;
@@ -413,12 +410,15 @@ button {
   vertical-align: middle;
   text-align: center;
   height: 40px;
+  line-height: 40px;
 }
 
 .r-vote-under, .r-vote-over, .d-vote-under, .d-vote-over, .o-vote-over {
   width: 14px;
   height:14px;
   margin-right: 2px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .r-vote-under {
@@ -450,6 +450,18 @@ button {
 }
 
 @media screen and (max-width : 700px) {
+  .project-intro, #dist-chart-title, #dist-legend {
+    margin: 5vw;
+  }
+
+  .project-intro h1 {
+    font-size: 18vw;
+  }
+
+  .project-intro h2 {
+    font-size: 4.8vw;
+  }
+
   .ex-flex {
     display: block;
   }
@@ -460,7 +472,7 @@ button {
   }
 
   .axis p {
-    font-size: 2vw;
+    font-size: 8px;
   }
 
   .tooltip h1 {
@@ -479,4 +491,55 @@ button {
   .tooltip h3 {
     font-size: 1.5vw;
   }
+
+  .intro-p, .quant-expl {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .project-intro h5 {
+    margin-left: 0px;
+    font-size: 30px;
+  }
+
+  .ex-gerry-result {
+    font-size: 170%;
+  }
+
+  .right-white, .left-white p {
+    font-size: 8px;
+  }
+
+  .state-eff, .state-eff p, .left-white, .left-blue, .right-red, .right-white {
+    height: 2vh;
+  }
+
+  .metric-buttons button {
+    font-size: 3.5vw;
+  }
+
+  .state-summ, #dist-legend p {
+    padding: 0%;
+  }
+
+  .state-summ p {
+    font-size: 5vw;
+  }
+
+  /* .r-vote-under, .r-vote-over, .d-vote-under, .d-vote-over, .o-vote-over {
+    width: 1vw;
+    height: 1vw;
+    margin-right: 0.4vw;
+  } */
+
+  .dist-label {
+    width: 12vw;
+  }
+
+  .dist-label p {
+    font-size: 3vw;
+    text-align: right;
+    padding-right: 3px;
+  }
+
 }

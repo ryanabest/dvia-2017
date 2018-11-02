@@ -236,11 +236,13 @@ function drawEffGaps() {
   $('#eff-gap-chart').append(lineDiv1);
   let lineDiv2 = $('<div></div>', {id:'line-div-2','class':'line-div'});
   $('#eff-gap-chart').append(lineDiv2);
-  let lineHght = effGapChart.length * 18;
+  let lineHghtPx = window.innerHeight * .02;
+  let lineHght = effGapChart.length * lineHghtPx;
   let lineTop = "-" + (lineHght+25) + "px";
   $('#line-div-1').css("top",lineTop);
   $('#line-div-2').css("top","-" + ((lineHght * 2)+25) + "px");
   $('.line-div').css("height",lineHght);
+
 
   let benchmark = 0.08;
   let benchmarkProportion = benchmark/axisMax;
@@ -290,7 +292,7 @@ function drawStateSummaryForDistChart() {
   $('#' + stateSummDivID).append(
     '<p><span class='+textClass+'>'+stateEffGap+'</span> efficiency gap ' +
     'and <span class='+textClass+'>'+stateSeatGap+'</span> proportional seat differential ' +
-    'benefitting <span class='+textClass+'>'+stateWinParty+'</span></p><br><br>'
+    'benefitting <span class='+textClass+'>'+stateWinParty+'</span></p>'
   );
 
   drawStateDropdown();

@@ -47,7 +47,18 @@ function pushDists(distResults) {
 }
 
 function drawDists() {
-  var oneBlock = 5000;
+  var oneBlock = 0;
+
+  if(window.innerWidth >= 700){
+    oneBlock = 5000;
+  } else if (window.innerWidth >= 360) {
+    oneBlock = 20000;
+  } {
+    oneBlock = 30000;
+  }
+
+  $('span#block-number').text(oneBlock.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
   for (let d=0;d<stateDists.length;d++) {
     // console.log(stateDists[d]);
     let distDivID = stateDists[d]['dist'];
@@ -65,7 +76,6 @@ function drawDists() {
     let distLabelDiv = $('<div></div>',{id:distLabelDivID,"class":distLabelDivClass});
     $('#' + distDivID).append(distLabelDiv);
     $('#' + distLabelDivID).append('<p>' + stateDists[d]['dist'] + '</p>');
-
     if (stateDists[d]['winningParty'] === 'R') {
       if (stateDists[d]['votesToWin']<stateDists[d]['rVotes']) {
         for (let a=0;a<Math.ceil(stateDists[d]['votesToWin']/oneBlock);a++) {
