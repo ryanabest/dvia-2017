@@ -53,7 +53,7 @@ function drawDists() {
     oneBlock = 5000;
   } else if (window.innerWidth >= 360) {
     oneBlock = 20000;
-  } {
+  } else {
     oneBlock = 30000;
   }
 
