@@ -4,14 +4,14 @@
     <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/jquery.min.js"></script> <!-- https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js -->
     <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
     <script language="javascript" type="text/javascript" src="libraries/lodash.js"></script>
     <script language="javascript" src="libraries/p5.dom.js"></script>
     <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
     <!-- <script src="js/preprocess.js"></script> -->
-    <script src="js/stateSketch.js">0</script>
-    <script src="js/distSketch.js"></script>
+    <!-- <script src="js/stateSketch.js"></script> -->
+    <!-- <script src="js/distSketch.js"></script> -->
     <script src="js/distJQSketch.js"></script>
     <script src="js/stateJQSketch.js"></script>
   </head>
@@ -25,15 +25,21 @@
         District lines throughout the country are mostly redrawn every ten years, after a new census identifies the sociological makeup of a state’s residents. In most states, this line-drawing process is controlled by state legislatures. If one political party has universal control over the legislature, they could use this power to draw lines that offer them a political advantage and the possibility to earn a disproportionately high number of representative seats. Let’s look at an example of how manipulating district lines may lead to such a disproportionate advantage. Below we explore a couple district border-drawing scenarios in an example state, which has an equal number of votes between a Red and Blue political party. In each scenario, we can see how changing the district lines can result in a different number of representatives elected by each party, even though voting totals remain unchanged.
         </p><br>
         <h4>Example State</h4>
-        <div id="example-state"></div>
+        <div id="example-state" class="img-div">
+          <img id="01-example-state" class="example-img" src="images/01-example-state.png">
+        </div>
         <p class='ex-state-p'>
           This state has a population of 40 people where half vote blue and half red, and will be split into 4 districts of equal size.<br><br>
           Based on this vote distribution, we “expect” that both <span class="r-p">Red</span> and <span class = "d-p">Blue</span> earn 2 of the 4 available seats under purely proportional representation.
         </p><br><br><br>
         <h5>Perfectly Proportional</h5>
         <div id="pro-flex" class="ex-flex">
-          <div id="proportional-state"></div>
-          <div id="pro-dists"></div>
+          <div id="proportional-state" class="img-div">
+            <img id="02-proportional-districts" class="example-img" src="images/02-proportional-districts.png">
+          </div>
+          <div id="pro-dists" class="img-div">
+            <img id="02-proportional-districts-winners" class="example-img" src="images/02-proportional-districts-winners.png">
+          </div>
         </div>
         <p class='center'>
           <span class="r-p">Red</span> won 50% of the vote and 2 seats<br>
@@ -41,8 +47,12 @@
         </p><br><br>
         <h5>Gerrymandered?</h5>
         <div id="gerry-flex" class="ex-flex">
-          <div id="gerry-state"></div>
-          <div id="gerry-dists"></div>
+          <div id="gerry-state" class="img-div">
+            <img id="02-gerry-districts" class="example-img" src="images/02-gerry-districts.png">
+          </div>
+          <div id="gerry-dists" class="img-div">
+            <img id="02-gerry-districts-winners" class="example-img" src="images/02-gerry-districts-winners.png">
+          </div>
         </div>
         <p class='center'>
           <span class="r-p">Red</span> won 50% of the vote and 1 seat<br>
@@ -69,17 +79,27 @@
           <br><br><br>
         </p><br><br>
         <div id="gerry-eff-flex" class="ex-flex">
-          <div id="gerry-state-2"></div>
-          <div id="gerry-eff-dists"></div>
+          <div id="gerry-state-2" class="img-div">
+            <img id="03-gerry-districts" class="example-img" src="images/02-gerry-districts.png">
+          </div>
+          <div id="gerry-eff-dists" class="img-div">
+            <img id="03-eff_gap-wasted" class="example-img" src="images/03-eff_gap-wasted.png">
+          </div>
         </div>
         <br><br>
         <div id="gerry-dist-flex-1" class="ex-flex">
           <div class="blank-div"></div>
-          <div id="gerry-eff-dem-dists"><p class="center"><span class="d-p">Blue</span> ‘wasted’ 2 votes:</p></div>
+          <div id="gerry-eff-dem-dists" class="img-div">
+            <p class="center"><span class="d-p">Blue</span> ‘wasted’ 2 votes:</p>
+            <img id="03-eff_gap-wasted-blue" class="example-img" src="images/03-eff_gap-wasted-blue.png">
+          </div>
         </div>
         <div id="gerry-dist-flex-2" class="ex-flex">
           <div class="blank-div"></div>
-          <div id="gerry-eff-rep-dists"><p class="center"><span class="r-p">Red</span> ‘wasted’ 14 votes:</p></div>
+          <div id="gerry-eff-rep-dists" class="img-div">
+            <p class="center"><span class="r-p">Red</span> ‘wasted’ 14 votes:</p>
+            <img id="03-eff_gap-wasted-red" class="example-img" src="images/03-eff_gap-wasted-red.png">
+          </div>
         </div><br>
         <p class="quant-expl">
           We can use these voting results in the efficiency gap formula to see how biased this election was, and which party it favored:<br><br>
@@ -141,11 +161,11 @@
     <br><br><br><br><br><br><br><br>
     <h6 class="chart-title">District Results</h6>
     <div id="dist-chart-title">
+    </div>
+    <div id="dist-chart"></div>
     <div id="dist-legend">
       <p>Each block represents 5,000 votes (rounded up) and is colored according to party, with grey indicating 'other'. Lighter blocks are votes under the winning threshold for each district.</p>
     </div>
-    </div>
-    <div id="dist-chart"></div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </body>
 </html>
