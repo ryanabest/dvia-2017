@@ -249,7 +249,7 @@ button {
 }
 
 .state-eff, .state-eff p, .left-white, .left-blue, .right-red, .right-white {
-  height: 2vh;
+  height: 18px;
 }
 
 .left-white, .right-white {
@@ -293,7 +293,7 @@ button {
 .line-div {
   position: relative;
   background-color: rgba(200,200,200,0.5);
-  width: 5px;
+  width: 3px;
   transition-duration: 2s;
 }
 
@@ -510,10 +510,6 @@ button {
     font-size: 8px;
   }
 
-  .state-eff, .state-eff p, .left-white, .left-blue, .right-red, .right-white {
-    height: 2vh;
-  }
-
   .metric-buttons button {
     font-size: 3.5vw;
   }
@@ -526,12 +522,6 @@ button {
     font-size: 5vw;
   }
 
-  /* .r-vote-under, .r-vote-over, .d-vote-under, .d-vote-over, .o-vote-over {
-    width: 1vw;
-    height: 1vw;
-    margin-right: 0.4vw;
-  } */
-
   .dist-label {
     width: 12vw;
   }
@@ -540,6 +530,12 @@ button {
     font-size: 3vw;
     text-align: right;
     padding-right: 3px;
+  }
+
+  #dropdown-content {
+    width: 85vw;
+    text-align: left;
+    position: relative;
   }
 
 }

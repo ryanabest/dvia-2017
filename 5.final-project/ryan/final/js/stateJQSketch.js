@@ -156,13 +156,13 @@ function drawEffGaps() {
     }
 
     let leftWhiteDivID = 'left-white-' + state;
-    let leftWhiteDivClass = 'left-white';
+    let leftWhiteDivClass = 'state-bar left-white';
     let leftBlueDivID = 'left-blue-' + state;
-    let leftBlueDivClass = 'left-blue';
+    let leftBlueDivClass = 'state-bar left-blue';
     let rightRedDivID = 'right-red-' + state;
-    let rightRedDivClass = 'right-red';
+    let rightRedDivClass = 'state-bar right-red';
     let rightWhiteDivID = 'right-white-' + state;
-    let rightWhiteDivClass = 'right-white';
+    let rightWhiteDivClass = 'state-bar right-white';
 
     let leftWhiteDiv = $('<div></div>', {id:leftWhiteDivID, "class":leftWhiteDivClass});
     let leftBlueDiv = $('<div></div>', {id:leftBlueDivID, "class":leftBlueDivClass});
@@ -231,12 +231,20 @@ function drawEffGaps() {
     });
   }
 
+  //height of bars
+  let lineHghtPx = 18;
+  if(window.innerWidth < 700){
+    lineHghtPx = window.innerHeight / (effGapChart.length + 4);
+  }
+  $('.state-eff').css("height",lineHghtPx);
+  $('.state-bar').css("height",lineHghtPx);
+
+
   //fairness benchmark lines
   let lineDiv1 = $('<div></div>', {id:'line-div-1','class':'line-div'});
   $('#eff-gap-chart').append(lineDiv1);
   let lineDiv2 = $('<div></div>', {id:'line-div-2','class':'line-div'});
   $('#eff-gap-chart').append(lineDiv2);
-  let lineHghtPx = window.innerHeight * .02;
   let lineHght = effGapChart.length * lineHghtPx;
   let lineTop = "-" + (lineHght+25) + "px";
   $('#line-div-1').css("top",lineTop);
@@ -528,17 +536,24 @@ function changeStateMetric() {
 }
 
 function drawEffAxes() {
+  let multplier;
+  if (window.innerWidth >= 700) {
+    multiplier = 50;
+  } else {
+    multiplier = 35;
+  }
   $('#eff-gap-axis-1').empty();
   $('#eff-gap-axis-2').empty();
   $('#eff-gap-axis-1').css("display","");
   $('#seat-gap-axis-1').css("display","none");
   $('#eff-gap-axis-2').css("display","");
   $('#seat-gap-axis-2').css("display","none");
+
   /*Eff Gap Axis */
   let effBenchmark = 0.05;
   let effNumOfTicks = Math.floor(axisMax/effBenchmark);
   let effBenchmarkProportion = effBenchmark/axisMax;
-  let effPercentValue = (effBenchmarkProportion*100)*0.5;//(Math.abs(effBenchmarkProportion)*100)*0.35;
+  let effPercentValue = (effBenchmarkProportion*100)*(multiplier/100);
   let effDivSize = effPercentValue + '%';
 
 
@@ -560,7 +575,7 @@ function drawEffAxes() {
   let effTickDiv2Dummy = $('<div></div>',{id:effTickDiv2DummyID, "class":effTickDiv2DummyClass});
   $('#eff-gap-axis-2').append(effTickDiv2Dummy);
 
-  let effDummyDivSize = (50-(effNumOfTicks*((effBenchmarkProportion/2)*100))) + '%';
+  let effDummyDivSize = (50-(effNumOfTicks*effPercentValue)) + '%';
   $('#' + effTickDiv2DummyID).css("width",effDummyDivSize);
 
   for (let n=0;n<effNumOfTicks;n++) {
@@ -598,7 +613,7 @@ function drawSeatAxes() {
   let seatBenchmark = 1;
   let seatNumOfTicks = Math.floor(axisMax/seatBenchmark);
   let seatBenchmarkProportion = seatBenchmark/axisMax;
-  let seatPercentValue = (seatBenchmarkProportion*100)*0.5;
+  let seatPercentValue = (seatBenchmarkProportion*100)*(multiplier/100);
   let seatDivSize = seatPercentValue + '%';
 
   let seatTickDiv1ZeroID = 'seat-tick-1-zero';
@@ -612,7 +627,7 @@ function drawSeatAxes() {
   let seatTickDiv2Dummy = $('<div></div>',{id:seatTickDiv2DummyID, "class":seatTickDiv2DummyClass});
   $('#seat-gap-axis-2').append(seatTickDiv2Dummy);
 
-  let seatDummyDivSize = (50-(seatNumOfTicks*((seatBenchmarkProportion/2)*100))) + '%';
+  let seatDummyDivSize = (50-(seatNumOfTicks*seatPercentValue)) + '%';
   $('#' + seatTickDiv2DummyID).css("width",seatDummyDivSize);
 
   for (let n=0;n<seatNumOfTicks;n++) {
