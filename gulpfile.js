@@ -10,19 +10,11 @@ gulp.task('browser-sync', function () {
   });
 });
 
-gulp.task('sass', function () {
-    return gulp.src('scss/*.scss')
-                .pipe(sass())
-                .pipe(gulp.dest('css'))
-                .pipe(bs.reload({stream: true}));
-});
-
-gulp.task('watch', ['browser-sync'], function () {
-    gulp.watch("scss/*.scss", ['sass']);
+gulp.task('watch', gulp.parallel('browser-sync', function() {
     gulp.watch("**.html").on('change', bs.reload);
     gulp.watch("**/**/**/**.html").on('change', bs.reload);
     gulp.watch("**/**/**/**.css").on('change', bs.reload);
     gulp.watch("**/**/**/**.js").on('change', bs.reload);
     gulp.watch("*.css").on('change', bs.reload);
     gulp.watch("*.js").on('change', bs.reload);
-});
+}));
