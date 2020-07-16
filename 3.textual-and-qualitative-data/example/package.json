@@ -8,6 +8,6 @@
   "dependencies": {
     "handlebars": "^4.0.10",
     "http-server": "^0.10.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.19"
   }
 }
