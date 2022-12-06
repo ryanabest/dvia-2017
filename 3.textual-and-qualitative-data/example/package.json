@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "handlebars": "^4.0.10",
-    "http-server": "^0.10.0",
+    "http-server": "^14.1.1",
     "lodash": "^4.17.4"
   }
 }
